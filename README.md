@@ -1,7 +1,7 @@
 # auxo
 ![author](https://img.shields.io/badge/author-chariesgavin-blueviolet.svg)[![Go](https://github.com/guobinhit/auxo/actions/workflows/go.yml/badge.svg)](https://github.com/guobinhit/auxo/actions/workflows/go.yml)![issues](https://img.shields.io/github/issues/guobinhit/auxo.svg)![stars](https://img.shields.io/github/stars/guobinhit/auxo.svg)![forks](https://img.shields.io/github/forks/guobinhit/auxo.svg)![license](https://img.shields.io/github/license/guobinhit/auxo.svg)
 
-> Auxo, one of the Greek mythological goddesses, was in charge of the mansion of summer and growth.
+> Auxo, goddess of summer and growth.
 
 # Contributing
 
