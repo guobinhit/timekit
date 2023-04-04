@@ -1,14 +1,13 @@
-package parse
+package auxo
 
 import (
-	"github.com/guobinhit/auxo"
 	"reflect"
 	"testing"
 	"time"
 )
 
-func TestGetMmDd(t *testing.T) {
-	d, _ := time.ParseInLocation(auxo.YyyyMmDdHhMmSs, "0000-04-13 00:00:00", time.Local)
+func TestParseMmDd(t *testing.T) {
+	d, _ := time.ParseInLocation(YyyyMmDdHhMmSs, "0000-04-13 00:00:00", time.Local)
 	type args struct {
 		dStr string
 	}
@@ -19,32 +18,32 @@ func TestGetMmDd(t *testing.T) {
 		wantErr bool
 	}{
 		{
-			name:    "GetMmDd error",
+			name:    "ParseMmDd error",
 			args:    args{dStr: "2022-04-13"},
 			wantErr: true,
 		},
 		{
-			name: "GetMmDd success",
+			name: "ParseMmDd success",
 			args: args{dStr: "04-13"},
 			want: d,
 		},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			got, err := GetMmDd(tt.args.dStr)
+			got, err := ParseMmDd(tt.args.dStr)
 			if (err != nil) != tt.wantErr {
-				t.Errorf("GetMmDd() error = %v, wantErr %v", err, tt.wantErr)
+				t.Errorf("ParseMmDd() error = %v, wantErr %v", err, tt.wantErr)
 				return
 			}
 			if !reflect.DeepEqual(got, tt.want) {
-				t.Errorf("GetMmDd() got = %v, want %v", got, tt.want)
+				t.Errorf("ParseMmDd() got = %v, want %v", got, tt.want)
 			}
 		})
 	}
 }
 
-func TestGetYyyyMm(t *testing.T) {
-	d, _ := time.ParseInLocation(auxo.YyyyMmDdHhMmSs, "2022-04-01 00:00:00", time.Local)
+func TestParseYyyyMm(t *testing.T) {
+	d, _ := time.ParseInLocation(YyyyMmDdHhMmSs, "2022-04-01 00:00:00", time.Local)
 	type args struct {
 		dStr string
 	}
@@ -55,32 +54,32 @@ func TestGetYyyyMm(t *testing.T) {
 		wantErr bool
 	}{
 		{
-			name:    "GetYyyyMm error",
+			name:    "ParseYyyyMm error",
 			args:    args{dStr: "2022-04-13"},
 			wantErr: true,
 		},
 		{
-			name: "GetYyyyMm success",
+			name: "ParseYyyyMm success",
 			args: args{dStr: "2022-04"},
 			want: d,
 		},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			got, err := GetYyyyMm(tt.args.dStr)
+			got, err := ParseYyyyMm(tt.args.dStr)
 			if (err != nil) != tt.wantErr {
-				t.Errorf("GetYyyyMm() error = %v, wantErr %v", err, tt.wantErr)
+				t.Errorf("ParseYyyyMm() error = %v, wantErr %v", err, tt.wantErr)
 				return
 			}
 			if !reflect.DeepEqual(got, tt.want) {
-				t.Errorf("GetYyyyMm() got = %v, want %v", got, tt.want)
+				t.Errorf("ParseYyyyMm() got = %v, want %v", got, tt.want)
 			}
 		})
 	}
 }
 
-func TestGetYyyyMmDd(t *testing.T) {
-	d, _ := time.ParseInLocation(auxo.YyyyMmDdHhMmSs, "2022-04-13 00:00:00", time.Local)
+func TestParseYyyyMmDd(t *testing.T) {
+	d, _ := time.ParseInLocation(YyyyMmDdHhMmSs, "2022-04-13 00:00:00", time.Local)
 	type args struct {
 		dStr string
 	}
@@ -91,32 +90,32 @@ func TestGetYyyyMmDd(t *testing.T) {
 		wantErr bool
 	}{
 		{
-			name:    "GetYyyyMmDd error",
+			name:    "ParseYyyyMmDd error",
 			args:    args{dStr: "2022-04-13 00:00:00"},
 			wantErr: true,
 		},
 		{
-			name: "GetYyyyMmDd success",
+			name: "ParseYyyyMmDd success",
 			args: args{dStr: "2022-04-13"},
 			want: d,
 		},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			got, err := GetYyyyMmDd(tt.args.dStr)
+			got, err := ParseYyyyMmDd(tt.args.dStr)
 			if (err != nil) != tt.wantErr {
-				t.Errorf("GetYyyyMmDd() error = %v, wantErr %v", err, tt.wantErr)
+				t.Errorf("ParseYyyyMmDd() error = %v, wantErr %v", err, tt.wantErr)
 				return
 			}
 			if !reflect.DeepEqual(got, tt.want) {
-				t.Errorf("GetYyyyMmDd() got = %v, want %v", got, tt.want)
+				t.Errorf("ParseYyyyMmDd() got = %v, want %v", got, tt.want)
 			}
 		})
 	}
 }
 
-func TestGetMmDdHhMm(t *testing.T) {
-	d, _ := time.ParseInLocation(auxo.YyyyMmDdHhMmSs, "0000-04-13 10:20:00", time.Local)
+func TestParseMmDdHhMm(t *testing.T) {
+	d, _ := time.ParseInLocation(YyyyMmDdHhMmSs, "0000-04-13 10:20:00", time.Local)
 	type args struct {
 		dStr string
 	}
@@ -127,32 +126,32 @@ func TestGetMmDdHhMm(t *testing.T) {
 		wantErr bool
 	}{
 		{
-			name:    "GetMmDdHhMm error",
+			name:    "ParseMmDdHhMm error",
 			args:    args{dStr: "2022-04-13 00:00:00"},
 			wantErr: true,
 		},
 		{
-			name: "GetMmDdHhMm success",
+			name: "ParseMmDdHhMm success",
 			args: args{dStr: "04-13 10:20"},
 			want: d,
 		},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			got, err := GetMmDdHhMm(tt.args.dStr)
+			got, err := ParseMmDdHhMm(tt.args.dStr)
 			if (err != nil) != tt.wantErr {
-				t.Errorf("GetMmDdHhMm() error = %v, wantErr %v", err, tt.wantErr)
+				t.Errorf("ParseMmDdHhMm() error = %v, wantErr %v", err, tt.wantErr)
 				return
 			}
 			if !reflect.DeepEqual(got, tt.want) {
-				t.Errorf("GetMmDdHhMm() got = %v, want %v", got, tt.want)
+				t.Errorf("ParseMmDdHhMm() got = %v, want %v", got, tt.want)
 			}
 		})
 	}
 }
 
-func TestGetMmDdHhMmSs(t *testing.T) {
-	d, _ := time.ParseInLocation(auxo.YyyyMmDdHhMmSs, "0000-04-13 10:20:30", time.Local)
+func TestParseMmDdHhMmSs(t *testing.T) {
+	d, _ := time.ParseInLocation(YyyyMmDdHhMmSs, "0000-04-13 10:20:30", time.Local)
 	type args struct {
 		dStr string
 	}
@@ -163,32 +162,32 @@ func TestGetMmDdHhMmSs(t *testing.T) {
 		wantErr bool
 	}{
 		{
-			name:    "GetMmDdHhMmSs error",
+			name:    "ParseMmDdHhMmSs error",
 			args:    args{dStr: "2022-04-13 00:00:00.123"},
 			wantErr: true,
 		},
 		{
-			name: "GetMmDdHhMmSs success",
+			name: "ParseMmDdHhMmSs success",
 			args: args{dStr: "04-13 10:20:30"},
 			want: d,
 		},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			got, err := GetMmDdHhMmSs(tt.args.dStr)
+			got, err := ParseMmDdHhMmSs(tt.args.dStr)
 			if (err != nil) != tt.wantErr {
-				t.Errorf("GetMmDdHhMmSs() error = %v, wantErr %v", err, tt.wantErr)
+				t.Errorf("ParseMmDdHhMmSs() error = %v, wantErr %v", err, tt.wantErr)
 				return
 			}
 			if !reflect.DeepEqual(got, tt.want) {
-				t.Errorf("GetMmDdHhMmSs() got = %v, want %v", got, tt.want)
+				t.Errorf("ParseMmDdHhMmSs() got = %v, want %v", got, tt.want)
 			}
 		})
 	}
 }
 
-func TestGetMmDdHhMmSsSss(t *testing.T) {
-	d, _ := time.ParseInLocation(auxo.YyyyMmDdHhMmSsSss, "0000-04-13 10:20:30.123", time.Local)
+func TestParseMmDdHhMmSsSss(t *testing.T) {
+	d, _ := time.ParseInLocation(YyyyMmDdHhMmSsSss, "0000-04-13 10:20:30.123", time.Local)
 	type args struct {
 		dStr string
 	}
@@ -199,32 +198,32 @@ func TestGetMmDdHhMmSsSss(t *testing.T) {
 		wantErr bool
 	}{
 		{
-			name:    "GetMmDdHhMmSsSss error",
+			name:    "ParseMmDdHhMmSsSss error",
 			args:    args{dStr: "2022-04-13 00:00:00.123"},
 			wantErr: true,
 		},
 		{
-			name: "GetMmDdHhMmSsSss success",
+			name: "ParseMmDdHhMmSsSss success",
 			args: args{dStr: "04-13 10:20:30.123"},
 			want: d,
 		},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			got, err := GetMmDdHhMmSsSss(tt.args.dStr)
+			got, err := ParseMmDdHhMmSsSss(tt.args.dStr)
 			if (err != nil) != tt.wantErr {
-				t.Errorf("GetMmDdHhMmSsSss() error = %v, wantErr %v", err, tt.wantErr)
+				t.Errorf("ParseMmDdHhMmSsSss() error = %v, wantErr %v", err, tt.wantErr)
 				return
 			}
 			if !reflect.DeepEqual(got, tt.want) {
-				t.Errorf("GetMmDdHhMmSsSss() got = %v, want %v", got, tt.want)
+				t.Errorf("ParseMmDdHhMmSsSss() got = %v, want %v", got, tt.want)
 			}
 		})
 	}
 }
 
-func TestGetYyyyMmDdHhMm(t *testing.T) {
-	d, _ := time.ParseInLocation(auxo.YyyyMmDdHhMmSsSss, "2022-04-13 10:20:00.000", time.Local)
+func TestParseYyyyMmDdHhMm(t *testing.T) {
+	d, _ := time.ParseInLocation(YyyyMmDdHhMmSsSss, "2022-04-13 10:20:00.000", time.Local)
 	type args struct {
 		dStr string
 	}
@@ -235,32 +234,32 @@ func TestGetYyyyMmDdHhMm(t *testing.T) {
 		wantErr bool
 	}{
 		{
-			name:    "GetYyyyMmDdHhMm error",
+			name:    "ParseYyyyMmDdHhMm error",
 			args:    args{dStr: "2022-04-13 00:00:00.123"},
 			wantErr: true,
 		},
 		{
-			name: "GetYyyyMmDdHhMm success",
+			name: "ParseYyyyMmDdHhMm success",
 			args: args{dStr: "2022-04-13 10:20"},
 			want: d,
 		},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			got, err := GetYyyyMmDdHhMm(tt.args.dStr)
+			got, err := ParseYyyyMmDdHhMm(tt.args.dStr)
 			if (err != nil) != tt.wantErr {
-				t.Errorf("GetYyyyMmDdHhMm() error = %v, wantErr %v", err, tt.wantErr)
+				t.Errorf("ParseYyyyMmDdHhMm() error = %v, wantErr %v", err, tt.wantErr)
 				return
 			}
 			if !reflect.DeepEqual(got, tt.want) {
-				t.Errorf("GetYyyyMmDdHhMm() got = %v, want %v", got, tt.want)
+				t.Errorf("ParseYyyyMmDdHhMm() got = %v, want %v", got, tt.want)
 			}
 		})
 	}
 }
 
-func TestGetYyyyMmDdHhMmSs(t *testing.T) {
-	d, _ := time.ParseInLocation(auxo.YyyyMmDdHhMmSsSss, "2022-04-13 10:20:30.000", time.Local)
+func TestParseYyyyMmDdHhMmSs(t *testing.T) {
+	d, _ := time.ParseInLocation(YyyyMmDdHhMmSsSss, "2022-04-13 10:20:30.000", time.Local)
 	type args struct {
 		dStr string
 	}
@@ -271,32 +270,32 @@ func TestGetYyyyMmDdHhMmSs(t *testing.T) {
 		wantErr bool
 	}{
 		{
-			name:    "GetYyyyMmDdHhMmSs error",
+			name:    "ParseYyyyMmDdHhMmSs error",
 			args:    args{dStr: "04-13 00:00:00.123"},
 			wantErr: true,
 		},
 		{
-			name: "GetYyyyMmDdHhMmSs success",
+			name: "ParseYyyyMmDdHhMmSs success",
 			args: args{dStr: "2022-04-13 10:20:30"},
 			want: d,
 		},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			got, err := GetYyyyMmDdHhMmSs(tt.args.dStr)
+			got, err := ParseYyyyMmDdHhMmSs(tt.args.dStr)
 			if (err != nil) != tt.wantErr {
-				t.Errorf("GetYyyyMmDdHhMmSs() error = %v, wantErr %v", err, tt.wantErr)
+				t.Errorf("ParseYyyyMmDdHhMmSs() error = %v, wantErr %v", err, tt.wantErr)
 				return
 			}
 			if !reflect.DeepEqual(got, tt.want) {
-				t.Errorf("GetYyyyMmDdHhMmSs() got = %v, want %v", got, tt.want)
+				t.Errorf("ParseYyyyMmDdHhMmSs() got = %v, want %v", got, tt.want)
 			}
 		})
 	}
 }
 
-func TestGetYyyyMmDdHhMmSsSss(t *testing.T) {
-	d, _ := time.ParseInLocation(auxo.YyyyMmDdHhMmSsSss, "2022-04-13 10:20:30.999", time.Local)
+func TestParseYyyyMmDdHhMmSsSss(t *testing.T) {
+	d, _ := time.ParseInLocation(YyyyMmDdHhMmSsSss, "2022-04-13 10:20:30.999", time.Local)
 	type args struct {
 		dStr string
 	}
@@ -307,25 +306,25 @@ func TestGetYyyyMmDdHhMmSsSss(t *testing.T) {
 		wantErr bool
 	}{
 		{
-			name:    "GetYyyyMmDdHhMmSsSss error",
+			name:    "ParseYyyyMmDdHhMmSsSss error",
 			args:    args{dStr: "04-13 00:00:00.123"},
 			wantErr: true,
 		},
 		{
-			name: "GetYyyyMmDdHhMmSsSss success",
+			name: "ParseYyyyMmDdHhMmSsSss success",
 			args: args{dStr: "2022-04-13 10:20:30.999"},
 			want: d,
 		},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			got, err := GetYyyyMmDdHhMmSsSss(tt.args.dStr)
+			got, err := ParseYyyyMmDdHhMmSsSss(tt.args.dStr)
 			if (err != nil) != tt.wantErr {
-				t.Errorf("GetYyyyMmDdHhMmSsSss() error = %v, wantErr %v", err, tt.wantErr)
+				t.Errorf("ParseYyyyMmDdHhMmSsSss() error = %v, wantErr %v", err, tt.wantErr)
 				return
 			}
 			if !reflect.DeepEqual(got, tt.want) {
-				t.Errorf("GetYyyyMmDdHhMmSsSss() got = %v, want %v", got, tt.want)
+				t.Errorf("ParseYyyyMmDdHhMmSsSss() got = %v, want %v", got, tt.want)
 			}
 		})
 	}
