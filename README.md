@@ -1,7 +1,5 @@
-# auxo
-![author](https://img.shields.io/badge/author-chariesgavin-blueviolet.svg)[![Go](https://github.com/guobinhit/timekit/actions/workflows/go.yml/badge.svg)](https://github.com/guobinhit/timekit/actions/workflows/go.yml)![issues](https://img.shields.io/github/issues/guobinhit/timekit.svg)![stars](https://img.shields.io/github/stars/guobinhit/auxo.svg)![forks](https://img.shields.io/github/forks/guobinhit/timekit.svg)![license](https://img.shields.io/github/license/guobinhit/timekit.svg)
-
-> Auxo, goddess of summer and growth.
+# timekit
+![author](https://img.shields.io/badge/author-chariesgavin-blueviolet.svg)[![Go](https://github.com/guobinhit/timekit/actions/workflows/go.yml/badge.svg)](https://github.com/guobinhit/timekit/actions/workflows/go.yml)![issues](https://img.shields.io/github/issues/guobinhit/timekit.svg)![stars](https://img.shields.io/github/stars/guobinhit/timekit.svg)![forks](https://img.shields.io/github/forks/guobinhit/timekit.svg)![license](https://img.shields.io/github/license/guobinhit/timekit.svg)
 
 # Contributing
 

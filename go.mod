@@ -1,5 +1,3 @@
-module github.com/guobinhit/auxo
+module github.com/guobinhit/timekit
 
 go 1.15
-
-require github.com/stretchr/testify v1.7.0

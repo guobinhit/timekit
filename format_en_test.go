@@ -1,4 +1,4 @@
-package auxo
+package timekit
 
 import (
 	"testing"

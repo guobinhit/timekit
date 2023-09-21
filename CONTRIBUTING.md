@@ -1,4 +1,4 @@
-# Welcome! Thank you for contributing to auxo!
+# Welcome! Thank you for contributing to timekit!
 
 We follow the standard GitHub [fork & pull](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/about-pull-requests#fork--pull) approach to pull requests.
 
@@ -6,9 +6,9 @@ This project now provides a practical util of Go. But to maintain a good style, 
 
 ## Package Path
 
-Now `auxo` project structure is:
+Now `timekit` project structure is:
 
-- auxo:
+- timekit:
     - `format`
     - `parse`
     - `const`

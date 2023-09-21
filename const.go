@@ -1,4 +1,4 @@
-package auxo
+package timekit
 
 // Define dates format constant
 const (
