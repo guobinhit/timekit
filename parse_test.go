@@ -331,7 +331,8 @@ func TestParseYyyyMmDdHhMmSsSss(t *testing.T) {
 }
 
 func TestParseTimestampUnix(t *testing.T) {
-	d, _ := time.ParseInLocation(YyyyMmDdHhMmSs, "2024-04-28 17:45:00", time.Local)
+	loc, _ := time.LoadLocation("Asia/Shanghai")
+	d, _ := time.ParseInLocation(YyyyMmDdHhMmSs, "2024-04-28 17:45:00", loc)
 	type args struct {
 		timeUnix int64
 	}
@@ -348,15 +349,16 @@ func TestParseTimestampUnix(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if got := ParseTimestampUnix(tt.args.timeUnix); !reflect.DeepEqual(got, tt.want) {
-				t.Errorf("ParseTimestampUnix() = %v, want %v", got, tt.want)
+			if got := ParseTimestampUnix(tt.args.timeUnix); !reflect.DeepEqual(got.Unix(), tt.want.Unix()) {
+				t.Errorf("ParseTimestampUnix() = %v, want %v", got.Unix(), tt.want.Unix())
 			}
 		})
 	}
 }
 
 func TestParseTimestampUnixMilli(t *testing.T) {
-	d, _ := time.ParseInLocation(YyyyMmDdHhMmSs, "2024-04-28 17:45:00", time.Local)
+	loc, _ := time.LoadLocation("Asia/Shanghai")
+	d, _ := time.ParseInLocation(YyyyMmDdHhMmSs, "2024-04-28 17:45:00", loc)
 	type args struct {
 		timeUnixMilli int64
 	}
@@ -373,8 +375,8 @@ func TestParseTimestampUnixMilli(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if got := ParseTimestampUnixMilli(tt.args.timeUnixMilli); !reflect.DeepEqual(got, tt.want) {
-				t.Errorf("ParseTimestampUnixMilli() = %v, want %v", got, tt.want)
+			if got := ParseTimestampUnixMilli(tt.args.timeUnixMilli); !reflect.DeepEqual(got.UnixMilli(), tt.want.UnixMilli()) {
+				t.Errorf("ParseTimestampUnixMilli() = %v, want %v", got.UnixMilli(), tt.want.UnixMilli())
 			}
 		})
 	}
