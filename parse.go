@@ -51,10 +51,10 @@ func ParseYyyyMmDdHhMmSsSss(dStr string) (time.Time, error) {
 
 // ParseTimestampUnix return time.Time by parse timeUnix seconds.
 func ParseTimestampUnix(timeUnix int64) time.Time {
-	return time.Unix(timeUnix, 0)
+	return time.Unix(timeUnix, 0).Local()
 }
 
 // ParseTimestampUnixMilli return time.Time by parse timeUnixMilli milliseconds.
 func ParseTimestampUnixMilli(timeUnixMilli int64) time.Time {
-	return time.UnixMilli(timeUnixMilli)
+	return time.UnixMilli(timeUnixMilli).Local()
 }
